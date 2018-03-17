@@ -64,7 +64,7 @@
                         </div>
                         <div>
                             <ul>
-                               <li>
+                               <!-- <li>
                                 <span>脆皮手枪腿</span>
                                 <span>￥23</span>
                                 <span>
@@ -99,7 +99,7 @@
                                   <span>0</span>
                                   <a href="javascript:;">+</a>
                                 </span>
-                              </li>
+                              </li> -->
                               <li>
                                 <span>脆皮手枪腿</span>
                                 <span>￥23</span>
