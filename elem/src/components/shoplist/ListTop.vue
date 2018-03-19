@@ -1,6 +1,6 @@
 <template>
   <div class="Listtop">
-      <div class="top" :style="'background:url('+makeImagePath(imgsrc)+') no-repeat ;background-size: cover;'"><i class="iconfont" v-html="iconfont['fanhui']"></i></a></div>
+      <div class="top" :style="'background:url('+makeImagePath(imgsrc)"><i class="iconfont" v-html="iconfont['fanhui']"></i></a></div>
       <div class="shop_header">
           <img :src = "makeImageUrl(imgsrc)">
           <div class="shop_header_1h">
@@ -77,7 +77,7 @@ export default {
       // console.log(res.data.activities[0].icon_name);
       // console.log(res.data.rating)
       this.imgsrc=res.data.image_path;
-      console.log(this.imgsrc)
+      // console.log(this.imgsrc)
       this.named=res.data.name;
       this.rating=res.data.rating;
       this.recent_order_num=res.data.recent_order_num;
@@ -110,8 +110,6 @@ export default {
         var part2 = imgPath.substr(1,2);
         var part3 = imgPath.substr(3);
         var part4 = part3.substr(29);
-        // console.log(imgPath);
-        // console.log(part1, part2, part3, part4);
         return `//fuss10.elemecdn.com/${part1}/${part2}/${part3}.${part4}?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/130x130/`;
       },
        makeImagePath(imgPath){
@@ -119,16 +117,13 @@ export default {
           var part2 = imgPath.substr(1,2);
           var part3 = imgPath.substr(3);
           var part4 = part3.substr(29);
-          // console.log(imgPath);
-          // console.log(part1, part2, part3, part4);
-          // if( this.isSetting ){
-          //   return
-          // }else{
-          //   this.isSetting = true;
-          //   $(".top").css("background-size","cover")
-          //   this.isSetting = false;
-          // }
-          return `//fuss10.elemecdn.com/${part1}/${part2}/${part3}.${part4}?imageMogr/format/webp/thumbnail/!40p/blur/50x40/`;
+          
+          if(imgPath == ""){
+            return;
+          }else{
+            // console.log(`//fuss10.elemecdn.com/${part1}/${part2}/${part3}.${part4}?imageMogr/format/webp/thumbnail/!40p/blur/50x40/) no-repeat;background-size:cover`)
+            return `//fuss10.elemecdn.com/${part1}/${part2}/${part3}.${part4}?imageMogr/format/webp/thumbnail/!40p/blur/50x40/) no-repeat;background-size:cover`
+          }
         },
       getColor(color){
             return "#"+color
