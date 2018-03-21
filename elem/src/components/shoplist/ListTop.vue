@@ -5,7 +5,7 @@
           <img :src = "makeImageUrl(imgsrc)">
           <div class="shop_header_1h">
             <h2>
-              <span v-if="brand" class="pinpai">品牌</span>
+               <span v-if="brand" class="pinpai">品牌</span>
               <span v-html="named" class="name"></span><i class="iconfont" v-html="iconfont['right']"></i>
             </h2>
             <div class="shop_header_1s">
@@ -20,6 +20,7 @@
             <span :style="'background:'+getColor(icon_color)" v-html="icon_name"></span>
             <span v-html="tips"></span>
             <span>{{activity.length}}个优惠</span>
+
           </div>
           
       </div>
@@ -65,19 +66,17 @@ export default {
       tips:"",
       icon_color:"",
       brand:"",
-
       isSetting : false
     }
   },
   mounted(){
-    // console.log(this.$route.params.slid)
-    var id = this.$route.params.slid;
+      var id = this.$route.params.slid;
      axios.get('/restapi/shopping/restaurant/'+id+'?extras[]=activities&extras[]=albums&extras[]=license&extras[]=identification&extras[]=qualification&terminal=h5&latitude=39.90469&longitude=116.407173')
     .then((res) =>{
-      // console.log(res.data.activities[0].icon_name);
+      console.log(res.data);
       // console.log(res.data.rating)
       this.imgsrc=res.data.image_path;
-      // console.log(this.imgsrc)
+
       this.named=res.data.name;
       this.rating=res.data.rating;
       this.recent_order_num=res.data.recent_order_num;
@@ -125,17 +124,17 @@ export default {
             return `//fuss10.elemecdn.com/${part1}/${part2}/${part3}.${part4}?imageMogr/format/webp/thumbnail/!40p/blur/50x40/) no-repeat;background-size:cover`
           }
         },
-      getColor(color){
-            return "#"+color
-      },
+        getColor(color){
+              return "#"+color
+        },
+      }
   }
-}
 
 
 
 </script>
 <style scoped>
-  *{
+ *{
     box-sizing: border-box;
   }
 
@@ -143,11 +142,11 @@ export default {
     display: flex;
     width:100%;
     height: 16vw;
-    padding:10px;
+    padding:15px 10px 0 10px ;
   }
   .top i{
-    font-size: 0.293rem;
-    color: #000;
+    font-size: 0.2rem;
+    color: #fff;
   }
   .shop_header{
     position: relative;
@@ -243,6 +242,7 @@ export default {
     margin-left:0.05rem;
     padding:3px;
     line-height: 0.15rem;
+/*    background:#70bc46;*/
   }
   .shop_header_2G span:nth-of-type(2){
     line-height:0.2rem;
@@ -254,6 +254,12 @@ export default {
     color:#666; 
     font-weight: 700
   }
+
+
+
+
+
+
 
   .activity{
     width:100%;

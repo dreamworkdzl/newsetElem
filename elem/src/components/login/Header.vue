@@ -6,7 +6,7 @@
     </div>
     <router-link to='/register'>
       <a class="reg">
-        <span class="portrait iconfont port">&#xe614;</span>
+        <span class="portrait iconfont port">&#xe723;</span>
         <div class="login">
           <p class="logreg">登录/注册</p>
           <p>
